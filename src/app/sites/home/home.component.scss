@@ -1,0 +1,372 @@
+.bg {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./../../../assets/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+}
+
+.l_headline {
+    padding-top: 3%;
+    text-transform: uppercase;
+}
+
+.launcherImg {
+    transform: perspective(1000px) rotate3d(-10, 10, -1, -13deg);
+    right: 15%;
+    position: absolute;
+    width: 910px;
+    top: 21%;
+}
+
+.blueColor {
+    color: #005be4;
+}
+
+.l_text {
+    margin-top: 11%;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.l_text_headline {
+    font-weight: bold;
+}
+
+.l_container {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.btn-download {
+    background-color: #005be4;
+    color: #fff;
+    width: 385px;
+    height: 60px;
+    font-size: 31px;
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    font-family: inherit;
+    
+    box-shadow: 0 0 0 rgba(0, 91, 228, 1);
+    animation: pulseButton 2s infinite;
+}
+
+@keyframes pulseButton {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(0, 91, 228, 1);
+        box-shadow: 0 0 0 0 rgba(0, 91, 228, 1);
+    }
+    75% {
+        -moz-box-shadow: 0 0 0 rgba(0, 91, 228, 0);
+        box-shadow: 0 0 0 18px rgba(0, 91, 228, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(0, 91, 228, 0);
+        box-shadow: 0 0 0 0 rgba(0, 91, 228, 0);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span {
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 64px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.row {
+    background: linear-gradient(61deg, #00c5ff, #9c7cff, #00e6ff);
+    background-size: 600% 600%;
+
+    -webkit-animation: mc_grAnim 30s ease infinite;
+    -moz-animation: mc_grAnim 30s ease infinite;
+    -o-animation: mc_grAnim 30s ease infinite;
+    animation: mc_grAnim 30s ease infinite;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+a {
+    color: #1b8b6a;
+    text-decoration: none;
+    transition: all 400ms ease 0s !important;
+    border-bottom: 3px solid transparent;
+}
+
+a:hover {
+    border-bottom: 3px solid #1b8b6a;
+}
+
+.textCol {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 45px;
+}
+
+.textColButton1 .button2 {
+    opacity: 0;
+    margin-right: 5px;
+    animation-name: fadeInLeft;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    z-index: 5;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out all;
+}
+
+.textColButton1 .button1 {
+    opacity: 0;
+    margin-right: 5px;
+    animation-name: fadeInTop;
+    animation-duration: 1s;
+    z-index: 6;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out all;
+}
+
+.textColText .p1 {
+    animation-name: fadeInTop;
+    opacity: 0;
+    animation-delay: .75s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out all;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+.textColText .p2 {
+    animation-name: fadeInTop;
+    opacity: 0;
+    animation-delay: .75s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out all;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+.textColText h1 {
+    animation-name: fadeInTop;
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: .75s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out all;
+    color: #fff;
+    font-weight: bold;
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 475px;
+    margin-top: -237.5px;
+    margin-left: -225px;
+    animation-name: fadeInTop;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out all;
+}
+
+.topRightIcons {
+    position: absolute;
+    color: #fff;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 99999;
+
+
+}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@-webkit-keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@-webkit-keyframes mc_grAnim {
+    0%{background-position:0% 60%}
+    50%{background-position:100% 41%}
+    100%{background-position:0% 60%}
+}
+@-moz-keyframes mc_grAnim {
+    0%{background-position:0% 60%}
+    50%{background-position:100% 41%}
+    100%{background-position:0% 60%}
+}
+@-o-keyframes mc_grAnim {
+    0%{background-position:0% 60%}
+    50%{background-position:100% 41%}
+    100%{background-position:0% 60%}
+}
+@keyframes mc_grAnim {
+    0%{background-position:0% 60%}
+    50%{background-position:100% 41%}
+    100%{background-position:0% 60%}
+}
+
+
+
+.downloadOverlay {
+    position: absolute;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: rgba(17, 17, 17, 0.5);
+    z-index: 999999;
+    display: unset;
+    transition: all .6s ease;
+}
+
+.downloadOverlay .loader {
+    background: rgba(17, 17, 17, 0.74);
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    position: absolute;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.downloadOverlay .loader mat-spinner {
+    margin: 0 auto;
+    top: 21px;
+    position: relative;
+}
+
+.downloadOverlay .loader h2 {
+    text-align: center;
+    margin-top: 65px;
+    margin-left: -20px;
+}
