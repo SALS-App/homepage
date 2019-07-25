@@ -1,0 +1,49 @@
+.provider {
+    height: 150px;
+    width: 150px;
+    border: solid 1px #828282;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rosenrudel div {
+    height: 100px;
+    width: 100px;
+    background-image: url('../../../../assets/rosenrudel.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat no-repeat;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.oneunited div {
+    height: 100px;
+    width: 100px;
+    background-image: url('../../../../assets/oneunited.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat no-repeat;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.closeContainer {
+    display: inline-block;
+    width: 100%;
+
+    h1 {
+        display: inline-block;
+    }
+
+    button {
+        float: right;
+    }
+}
+
+.providerList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
