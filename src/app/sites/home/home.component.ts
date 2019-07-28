@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
           'total': event.total
         });
       } else if (event instanceof HttpResponse) {
-        this.fSaver.save((<any>event.body), 'HALLO.exe');
+        this.fSaver.save((<any>event.body), `${res} Installer.exe`);
         this.isDownloading = false;
       }
     });

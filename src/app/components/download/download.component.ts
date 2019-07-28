@@ -36,7 +36,7 @@ export class DownloadComponent implements OnInit {
         headers: new HttpHeaders({ 'Content-Type': 'application/octet-stream' }) 
       });
       
-      this.httpClient.request(req).subscribe(event => {
+      this.httpClient.request(req).subscribe(async event => {
         if (event.type === HttpEventType.DownloadProgress) {
           this.dlPercent = `${Math.round(100 * event.loaded / event.total)}%`;
           this.ss.changeDownloadVal({
@@ -44,7 +44,7 @@ export class DownloadComponent implements OnInit {
             'total': event.total
           });
         } else if (event instanceof HttpResponse) {
-          this.fSaver.save((<any>event.body), 'HALLO.exe');
+          this.fSaver.save((<any>event.body), `${res.id} Installer.exe`);
           this.router.navigate(['/']);
         }
       });
