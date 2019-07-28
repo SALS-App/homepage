@@ -16,6 +16,8 @@ import { MatRippleModule } from '@angular/material/core';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedService } from './providers/shared.service';
+import { BlobDownloaderService } from './providers/blob-downloader.service';
+import { FileSaverModule } from 'ngx-filesaver';
 
 
 const appRoutes: Routes = [
@@ -37,10 +39,12 @@ const appRoutes: Routes = [
     MatRippleModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    FileSaverModule
   ],
   providers: [
-    SharedService
+    SharedService,
+    BlobDownloaderService
   ],
   bootstrap: [AppComponent],
   entryComponents: [SelectModalDialog]
