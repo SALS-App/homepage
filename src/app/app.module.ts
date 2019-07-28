@@ -18,17 +18,22 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedService } from './providers/shared.service';
 import { BlobDownloaderService } from './providers/blob-downloader.service';
 import { FileSaverModule } from 'ngx-filesaver';
+import { DownloadComponent } from './components/download/download.component';
+import { MainComponent } from './components/home/main/main.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'download/:id', component: DownloadComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SelectModalDialog
+    SelectModalDialog,
+    DownloadComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
