@@ -13,7 +13,6 @@
 }
 
 .launcherImg {
-    content:url('../../../../images/launcher.png');
     transform: perspective(1000px) rotate3d(-10, 10, -1, -13deg);
     right: 15%;
     position: absolute;
