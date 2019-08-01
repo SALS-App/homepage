@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SelectModalDialog } from './select-modal/select-modal';
 import { SharedService } from 'src/app/providers/shared.service';
 import { HttpClient, HttpEventType, HttpRequest, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { Subscription } from 'rxjs';
 import { BlobDownloaderService } from 'src/app/providers/blob-downloader.service';
 import { FileSaverService } from 'ngx-filesaver';
 
@@ -12,18 +11,12 @@ import { FileSaverService } from 'ngx-filesaver';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
 
   isDownloading: boolean = false;
 
-  private versionHandler: Subscription
-  private isVersionHandler = false;
-
-  private downloadFileHandler: Subscription;
-  private isDownloadFileHandler = false;
-
-  private ProvierDialog;
+  private ProvierDialog: any;
 
   dlPercent: string;
 
@@ -38,11 +31,6 @@ export class HomeComponent implements OnInit {
       this.downloadFile(res);
     })
   }
-
-  async ngOnInit() {
-    console.log(await this.bloDown.getDLLink('oneunited'));
-  }
-
 
   openDialog(): void {
     this.ProvierDialog =  this.dialog.open(SelectModalDialog, {
