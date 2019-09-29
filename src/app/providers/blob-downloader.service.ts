@@ -12,7 +12,7 @@ export class BlobDownloaderService {
 
   async getDLLink(provider: string): Promise<any> {
     let end = new Promise((resolve, reject) => {
-      this.httpClient.get('https://sals-euwest-1.fra1.digitaloceanspaces.com/' + provider + '.yml', { responseType: 'text' })
+      this.httpClient.get('https://update.sals-app.com/' + provider + '.yml', { responseType: 'text' })
       .subscribe(resLayer1 => {
         const regex = /path: ?([-0-9a-zA-Z .,]){1,420}/gm;
         let m: any;
@@ -22,7 +22,7 @@ export class BlobDownloaderService {
                 regex.lastIndex++;
             }
 
-            resolve('https://sals-euwest-1.fra1.digitaloceanspaces.com/' + m[0].substring(6));
+            resolve('https://update.sals-app.com/' + m[0].substring(6));
           }
       });
     })
