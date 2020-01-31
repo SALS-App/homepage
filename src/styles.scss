@@ -1,5 +1,5 @@
 @import './../node_modules/bootstrap/dist/css/bootstrap.css';
 @import "./app/css/matTheme.scss";
 
-html, body { height: 100%; background-color: #040402; }
+html, body { height: 100%; background-color: #040402; overflow-x: hidden; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
