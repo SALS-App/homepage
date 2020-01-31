@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subscription, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,23 +11,30 @@ export class BlobDownloaderService {
     private httpClient: HttpClient
   ) { }
 
-  async getDLLink(provider: string): Promise<any> {
-    let end = new Promise((resolve, reject) => {
-      this.httpClient.get('https://update.sals-app.com/' + provider + '.yml', { responseType: 'text' })
-      .subscribe(resLayer1 => {
-        const regex = /path: ?([-0-9a-zA-Z .,]){1,420}/gm;
-        let m: any;
-  
-        while ((m = regex.exec(resLayer1.toString())) !== null) {
-            if (m.index === regex.lastIndex) {
-                regex.lastIndex++;
-            }
+  private async getContents(url: string, options: {}): Promise<any> {
+    return await new Promise((resolve, reject) => {
+      this.httpClient.get(url, options)
+        .subscribe(res => resolve(res));
+    });
+  }
 
-            resolve('https://update.sals-app.com/' + m[0].substring(6));
-          }
-      });
-    })
+  async getDLLink(provider: string): Promise<string> {
+    const providerInfo = await this.getContents(
+      `https://update.sals-app.com/${provider}.yml`,
+      { responseType: 'text' }
+    );
 
-    return await end;
+    const regex = /path: ?([-0-9a-zA-Z .,]){1,420}/gm;
+    let m: any;
+
+    while ((m = regex.exec(providerInfo.toString())) !== null) {
+      if (m.index === regex.lastIndex) {
+        regex.lastIndex++;
+      }
+
+      return ('https://update.sals-app.com/' + m[0].substring(6));
+    }
+
   }
 }
+
