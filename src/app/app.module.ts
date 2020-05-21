@@ -5,21 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatButtonModule } from '@angular/material/button';
+import { FileSaverModule } from 'ngx-filesaver';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './sites/home/home.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { SelectModalDialog } from './sites/home/select-modal/select-modal';
-import { MatRippleModule } from '@angular/material/core';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedService } from './providers/shared.service';
 import { BlobDownloaderService } from './providers/blob-downloader.service';
-import { FileSaverModule } from 'ngx-filesaver';
 import { DownloadComponent } from './components/download/download.component';
 import { MainComponent } from './components/home/main/main.component';
+import { SharedModule } from './shared/shared.module';
 
 
 const appRoutes: Routes = [
@@ -39,13 +35,9 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    MatButtonModule,
-    MatDialogModule,
-    MatRippleModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
     HttpClientModule,
-    FileSaverModule
+    FileSaverModule,
+    SharedModule
   ],
   providers: [
     SharedService,
