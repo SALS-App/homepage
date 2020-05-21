@@ -1,5 +1,6 @@
-import {Injectable, Output, EventEmitter} from '@angular/core';
+import { Injectable, Output, EventEmitter, Directive } from '@angular/core';
 
+@Directive()
 @Injectable()
 export class SharedService {
   @Output() fire: EventEmitter<any> = new EventEmitter();
