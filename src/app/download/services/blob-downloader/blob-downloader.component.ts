@@ -1,15 +1,17 @@
+import { HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { BlobDownloaderService } from 'src/app/providers/blob-downloader.service';
-import { HttpRequest, HttpHeaders, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
-import { FileSaverService } from 'ngx-filesaver';
 import { MatDialogRef } from '@angular/material/dialog';
+import { FileSaverService } from 'ngx-filesaver';
+import { DownloadComponent } from 'src/app/components/download/download.component';
+import { BlobDownloaderService } from 'src/app/providers/blob-downloader.service';
 
 @Component({
-  selector: 'app-download',
-  templateUrl: './download.component.html',
-  styleUrls: ['./download.component.scss']
+  selector: 'app-blob-downloader',
+  templateUrl: './blob-downloader.component.html',
+  styleUrls: ['./blob-downloader.component.scss']
 })
-export class DownloadComponent implements OnInit {
+export class BlobDownloaderComponent implements OnInit {
+
 
   dlPercent: string = 'Starting...';
 
