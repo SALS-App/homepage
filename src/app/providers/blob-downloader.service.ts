@@ -17,9 +17,9 @@ export class BlobDownloaderService {
     });
   }
 
-  async getDLLink(provider: string): Promise<string> {
+  async getDLLink(): Promise<string> {
     const providerInfo = await this.getContents(
-      `https://update.sals-app.com/${provider}.yml`,
+      `https://update.sals-app.com/beta.yml`,
       { responseType: 'text' }
     );
 
