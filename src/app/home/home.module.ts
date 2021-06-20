@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DownloadModule } from '../download/download.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     CommonModule,
     HomeRoutingModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    DownloadModule
   ]
 })
 export class HomeModule { }
