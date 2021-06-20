@@ -1,37 +1,61 @@
-<div class="main">
-    <div class="navbar">
-        <div class="logo">
-            <img src="../../../../assets/images/logo.png" width="500px" alt="">
-        </div>
+<div class="home">
+    <div class="bg-image">
+        <app-navbar></app-navbar>
 
-        <div class="links">
-            <ul>
-                <li><a href="#">Docs</a></li>
-                <li><a href="https://github.com/SALS-App/SALS" target="_blank">Bug Tracker</a></li>
-                <li><a href="#">Kontakt</a></li>
-            </ul>
-        </div>
+        <section id="section1">
+            <div class="info-text">
+                <h1>Der All-In-One Launcher für jedes ArmA Projekt!</h1>
+
+                <div>
+                    <p>Einfaches und Intuitives Interface,</p>
+                    <p>Einfache Administration für Nutzer und Administrator,</p>
+                    <p>Einfaches System um so schnell wie möglich zu spielen.</p>
+                </div>
+            </div>
+
+            <div class="action-links">
+                <a (click)="download()" mat-raised-button color="primary">Download Launcher</a>
+                <a href="https://docs.sals-app.com/de" target="_blank" mat-stroked-button
+                    color="primary">Dokumentation</a>
+            </div>
+
+        </section>
     </div>
 
-    <section id="section1">
-        <div class="info-text">
-            <h1>Der All-In-One Launcher für jedes ArmA Projekt!</h1>
+    <section id="section2">
+        <h1>Features</h1>
 
-            <div>
-                <p>Benutzerfreundliches Interface,</p>
-                <p>Einfaches Administrieren der Daten mit</p>
-                <p>modernsten Technologien.</p>
+        <div class="features">
+            <div class="row">
+                <div class="feature-details col-6">
+                    <h3>Multi-Modset Support</h3>
+                    <p>Hiermit können viele verschiedene Modset Scenarios mit sehr wenig Speicherplatz realisiert
+                        werden.
+                    </p>
+                </div>
+                <div class="col-6 d-flex justify-center">
+                    <p><img src="../../../../assets/images/sals_1.gif" alt="Multi-Modset Showcase"></p>
+                </div>
+            </div>
+
+
+            <div style="margin-top: 5%" class="row">
+                <div class="feature-details col-6">
+                    <h3>Einfach zu verstehende Einstellungen</h3>
+                    <p>Alle einstellungen, die zum spielen wichtig sind, können hier angepasst werden. Optionen, wie
+                        DLC's,
+                        etc.
+                        werden von der Community für die Modsets festgelegt.</p>
+                </div>
+                <div class="col-6 d-flex justify-center">
+                    <img src="../../../../assets/images/sals_2.gif" alt="Settings Showcase">
+                </div>
             </div>
         </div>
 
-        <div class="action-links">
-            <a (click)="download()" mat-raised-button color="primary">Download Launcher</a>
-            <a href="https://docs.sals-app.com/de" target="_blank" mat-stroked-button color="primary">Dokumentation</a>
-        </div>
-
     </section>
-</div>
 
-<section>
-    <h1>ROFL</h1>
-</section>
+    <footer>
+        FOOTER
+    </footer>
+</div>

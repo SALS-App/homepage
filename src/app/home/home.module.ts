@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DownloadModule } from '../download/download.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DownloadModule } from '../download/download.module';
     HomeRoutingModule,
     MatButtonModule,
     MatDialogModule,
-    DownloadModule
+    DownloadModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
