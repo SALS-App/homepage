@@ -24,6 +24,10 @@ $candy-app-theme: mat.define-dark-theme($candy-app-primary, $candy-app-accent, $
 // that you are using.
 @include mat.all-component-themes($candy-app-theme);
 
+.mat-dialog-container {
+    background: rgba(19, 19, 19, 0);
+}
+
 html,
 body {
     height: 100%;
