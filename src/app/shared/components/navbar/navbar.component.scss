@@ -1,11 +1,13 @@
 .navbar {
     height: auto;
+    padding-left: 0;
 
     .logo {
         padding-top: 0.6em;
     }
 
     .links {
+        padding-top: 0.6em;
         padding-right: 4%;
 
         ul {
