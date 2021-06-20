@@ -1,7 +1,7 @@
 .bg {
   height: 100vh;
   width: 100vw;
-  background-image: url("../../../images/bg.jpg");
+  background-image: url("../../../assets/images/bg.jpg");
   background-position: center;
   background-repeat: no-repeat no-repeat;
   background-size: cover;
@@ -13,7 +13,7 @@
 }
 
 .launcherImg {
-  content: url("../../../images/launcher.png");
+  content: url("../../../assets/images/launcher.png");
   transform: perspective(1000px) rotate3d(-10, 10, -1, -13deg);
   right: 15%;
   position: absolute;
