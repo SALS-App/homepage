@@ -9,10 +9,8 @@ import { FileSaverModule } from 'ngx-filesaver';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BlobDownloaderService } from './providers/blob-downloader.service';
 import { DownloadComponent } from './components/download/download.component';
-import { MainComponent } from './components/home/main/main.component';
-import { SharedModule } from './shared/shared.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 const appRoutes: Routes = [
@@ -23,8 +21,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DownloadComponent,
-    MainComponent
+    DownloadComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +29,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     HttpClientModule,
     FileSaverModule,
-    SharedModule
-  ],
-  providers: [
-    BlobDownloaderService
+    MatProgressSpinnerModule
   ],
   bootstrap: [AppComponent],
   entryComponents: []
