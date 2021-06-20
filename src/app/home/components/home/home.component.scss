@@ -7,34 +7,40 @@ h1 {
     font-size: 2.4em;
 }
 
-.main {
-    background-image: url("../../../../assets/images/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    padding-left: 5%;
+.home {
+    .bg-image {
+        background-image: url("../../../../assets/images/background.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        padding-left: 5%;
 
-    #section1 {
-        position: absolute;
-        top: 35%;
+        #section1 {
+            position: absolute;
+            top: 35%;
 
-        .info-text {
-            div {
-                margin-top: 3%;
-                p {
-                    line-height: 0.4em;
-                    letter-spacing: 0.1em;
-                    font-size: 1.1em;
+            .info-text {
+                div {
+                    margin-top: 3%;
+                    p {
+                        line-height: 0.4em;
+                        letter-spacing: 0.1em;
+                        font-size: 1.1em;
+                    }
                 }
             }
-        }
 
-        .action-links {
-            margin-top: 20%;
+            .action-links {
+                margin-top: 20%;
+            }
         }
+    }
+
+    #section2 {
+        padding-left: 5%;
     }
 }
 
