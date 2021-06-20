@@ -1,0 +1,27 @@
+.loader {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    backdrop-filter: blur(15px) !important;
+    background: rgba(19, 19, 19, 0.5);
+    border-radius: 5px;
+    transition: all 0.6s ease;
+
+    mat-spinner {
+        margin: 0 auto;
+        top: 21px;
+        position: relative;
+    }
+
+    h2 {
+        color: #fff;
+        text-align: center;
+        margin-top: 65px;
+        margin-left: -20px;
+    }
+}

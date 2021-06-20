@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DownloadComponent } from 'src/app/components/download/download.component';
+import { DownloadComponent } from 'src/app/download/components/download/download.component';
 
 @Component({
   selector: 'app-home',
