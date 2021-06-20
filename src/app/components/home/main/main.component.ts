@@ -10,6 +10,5 @@ export class MainComponent {
 
   constructor() { }
 
-  launcherImg = require('../../../../images/launcher.png');
 
 }
