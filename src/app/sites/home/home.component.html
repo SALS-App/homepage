@@ -1,10 +1,37 @@
-<div *ngIf="isDownloading" class="downloadOverlay">
-  <div class="loader">
-    <mat-spinner></mat-spinner>
-    <h2>Lade runter... ({{ dlPercent }}%)</h2>
+<div class="main">
+  <div class="navbar">
+    <div class="logo">
+      <img src="../../../../assets/images/logo.png" width="500px" alt="">
+    </div>
+
+    <div class="links">
+      <ul>
+        <li><a href="#">Docs</a></li>
+        <li><a href="https://github.com/SALS-App/SALS" target="_blank">Bug Tracker</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
   </div>
+
+  <section id="section1">
+    <div class="info-text">
+      <h1>Der All-In-One Launcher für jedes ArmA Projekt!</h1>
+
+      <div>
+        <p>Benutzerfreundliches Interface,</p>
+        <p>Einfaches Administrieren der Daten mit</p>
+        <p>modernsten Technologien.</p>
+      </div>
+    </div>
+
+    <div class="action-links">
+      <a mat-raised-button color="primary">Download Launcher</a>
+      <a href="https://docs.sals-app.com/de" target="_blank" mat-stroked-button color="primary">Dokumentation</a>
+    </div>
+
+  </section>
 </div>
 
-<app-main></app-main>
-<button (click)="openDialog()" class="btn-download" mat-raised-button>Download Launcher <i
-  class="fas fa-download"></i></button>
+<section>
+  <h1>ROFL</h1>
+</section>
