@@ -1,35 +1,27 @@
-
-
-.downloadOverlay {
+.loader {
+    backdrop-filter: blur(15px) !important;
+    background: rgba(19, 19, 19, 0.5);
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
     position: absolute;
-    min-height: 100vh;
-    min-width: 100vw;
-    background: rgba(17, 17, 17, 0.5);
-    z-index: 999999;
-    display: unset;
-    transition: all .6s ease;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: all 0.6s ease;
 
+    mat-spinner {
+        margin: 0 auto;
+        top: 21px;
+        position: relative;
+    }
 
-    .loader {
-        background: rgba(17, 17, 17, 0.74);
-        width: 150px;
-        height: 150px;
-        border-radius: 5px;
-        position: absolute;
-        margin: auto;
-        top: 0; left: 0; bottom: 0; right: 0;
-
-        mat-spinner {
-            margin: 0 auto;
-            top: 21px;
-            position: relative;
-        }
-
-        h2 {
-            color: #fff;
-            text-align: center;
-            margin-top: 65px;
-            margin-left: -20px;
-        }
+    h2 {
+        color: #fff;
+        text-align: center;
+        margin-top: 65px;
+        margin-left: -20px;
     }
 }
