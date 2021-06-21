@@ -18,9 +18,9 @@ const appRoutes: Routes = [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy', initialNavigation: 'enabled' }),
     HttpClientModule,
     FileSaverModule
   ],
