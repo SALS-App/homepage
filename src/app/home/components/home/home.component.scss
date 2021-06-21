@@ -64,6 +64,13 @@ h1 {
             top: 15%;
             width: 90vw;
 
+            .row {
+                .showcase-video video {
+                    margin: 0 auto;
+                    max-width: 100%;
+                }
+            }
+
             .feature-details {
                 h3 {
                     text-align: center;
