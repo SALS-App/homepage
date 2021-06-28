@@ -2,6 +2,7 @@ import { HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse } fro
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FileSaverService } from 'ngx-filesaver';
+import { TelemetryService } from 'src/app/telemetry/services/telemetry.service';
 import { BlobDownloaderService } from '../../services/blob-downloader.service';
 
 @Component({
@@ -17,10 +18,13 @@ export class DownloadComponent implements OnInit {
     private blobDownloader: BlobDownloaderService,
     private httpClient: HttpClient,
     private fSaver: FileSaverService,
-    private dialogRef: MatDialogRef<DownloadComponent>
+    private dialogRef: MatDialogRef<DownloadComponent>,
+    private telemetry: TelemetryService
   ) { }
 
   async ngOnInit() {
+    this.telemetry.client.trackEvent("1.0-beta-download");
+
     const req = new HttpRequest('GET', await this.blobDownloader.getDLLink(), {
       reportProgress: true,
       responseType: 'blob',
