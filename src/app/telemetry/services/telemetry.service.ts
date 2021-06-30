@@ -11,7 +11,7 @@ export class TelemetryService {
 
   constructor() {
     this.client = Plausible({
-      domain: 'sals-app.com'
+      domain: 'beta.sals-app.com'
     });
   }
 }
