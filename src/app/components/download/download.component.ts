@@ -4,6 +4,7 @@ import { SharedService } from 'src/app/providers/shared.service';
 import { BlobDownloaderService } from 'src/app/providers/blob-downloader.service';
 import { HttpRequest, HttpHeaders, HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 import { FileSaverService } from 'ngx-filesaver';
+import { TelemetryService } from 'src/app/telemetry/service/telemetry.service';
 
 @Component({
   selector: 'app-download',
@@ -21,21 +22,24 @@ export class DownloadComponent implements OnInit {
     private ss: SharedService,
     private blobDownloader: BlobDownloaderService,
     private httpClient: HttpClient,
-    private fSaver: FileSaverService
+    private fSaver: FileSaverService,
+    private telemetryService: TelemetryService
   ) { }
 
   async ngOnInit() {
+    this.telemetryService.client.trackPageview();
+
     this.activeRoute.params.subscribe(async res => {
-      if (typeof(res.id) === 'undefined') {
+      if (typeof (res.id) === 'undefined') {
         this.router.navigate(['/']);
       }
 
       const req = new HttpRequest('GET', await this.blobDownloader.getDLLink(res.id), {
         reportProgress: true,
         responseType: 'blob',
-        headers: new HttpHeaders({ 'Content-Type': 'application/octet-stream' }) 
+        headers: new HttpHeaders({ 'Content-Type': 'application/octet-stream' })
       });
-      
+
       this.httpClient.request(req).subscribe(async event => {
         if (event.type === HttpEventType.DownloadProgress) {
           this.dlPercent = `${Math.round(100 * event.loaded / event.total)}%`;
