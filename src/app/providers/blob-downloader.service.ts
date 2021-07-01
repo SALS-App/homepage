@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { TelemetryService } from '../telemetry/service/telemetry.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class BlobDownloaderService {
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private telemetryService: TelemetryService
   ) { }
 
   private async getContents(url: string, options: {}): Promise<any> {
@@ -18,6 +20,8 @@ export class BlobDownloaderService {
   }
 
   async getDLLink(provider: string): Promise<string> {
+    this.telemetryService.client.trackEvent("launcher: download");
+
     const providerInfo = await this.getContents(
       `https://update.sals-app.com/${provider}.yml`,
       { responseType: 'text' }
