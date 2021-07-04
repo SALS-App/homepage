@@ -8,10 +8,25 @@ import { FileSaverModule } from 'ngx-filesaver';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AckeeConfig, AckeeModule } from 'ngx-ackee-wrapper';
 
 const appRoutes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }
 ];
+
+const ACKEE_CONFIG: AckeeConfig = {
+  tracker: "https://nova.sals-app.com/tracker.js",
+  server: "https://nova.sals-app.com",
+  domainId: "6f8218cd-5be8-42df-91dc-e70f3e294f3e",
+  options: {
+    ignoreLocalhost: false,
+    detailed: true,
+    // ignoreOwnVisits: true,
+  },
+  dev: false,
+  ignore: false,
+};
+
 
 @NgModule({
   declarations: [
@@ -22,7 +37,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy', initialNavigation: 'enabled' }),
     HttpClientModule,
-    FileSaverModule
+    FileSaverModule,
+    AckeeModule.forRoot(ACKEE_CONFIG)
   ],
   bootstrap: [AppComponent],
   entryComponents: []

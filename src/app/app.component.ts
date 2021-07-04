@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TelemetryService } from './telemetry/services/telemetry.service';
+import { AckeeService } from 'ngx-ackee-wrapper';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +8,10 @@ import { TelemetryService } from './telemetry/services/telemetry.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private telemetry: TelemetryService) { }
+  constructor(private ackeeServ: AckeeService) { }
 
   ngOnInit(): void {
-    this.telemetry.client.trackPageview();
+    this.ackeeServ.visit();
   }
 
 }
