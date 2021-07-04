@@ -1,8 +1,8 @@
 import { HttpClient, HttpEventType, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AckeeService } from 'ngx-ackee-wrapper';
 import { FileSaverService } from 'ngx-filesaver';
-import { TelemetryService } from 'src/app/telemetry/services/telemetry.service';
 import { BlobDownloaderService } from '../../services/blob-downloader.service';
 
 @Component({
@@ -19,11 +19,11 @@ export class DownloadComponent implements OnInit {
     private httpClient: HttpClient,
     private fSaver: FileSaverService,
     private dialogRef: MatDialogRef<DownloadComponent>,
-    private telemetry: TelemetryService
+    private ackeeServ: AckeeService
   ) { }
 
   async ngOnInit() {
-    this.telemetry.client.trackEvent("1.0-beta-download");
+    this.ackeeServ.event("5c254feb-31b8-4a3b-80be-8563b883cc28", { key: "Download", value: 1 });
 
     const req = new HttpRequest('GET', await this.blobDownloader.getDLLink(), {
       reportProgress: true,
