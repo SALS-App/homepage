@@ -19,7 +19,7 @@ export class BlobDownloaderService {
 
   async getDLLink(): Promise<string> {
     const providerInfo = await this.getContents(
-      `https://update.sals-app.com/beta.yml`,
+      `https://update.sals-app.com/latest.yml`,
       { responseType: 'text' }
     );
 
