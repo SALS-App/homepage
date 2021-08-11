@@ -17,7 +17,7 @@ const appRoutes: Routes = [
 const ACKEE_CONFIG: AckeeConfig = {
   tracker: "https://nova.sals-app.com/tracker.js",
   server: "https://nova.sals-app.com",
-  domainId: "6f8218cd-5be8-42df-91dc-e70f3e294f3e",
+  domainId: "1e547cc6-e9f2-40d6-8acb-f1d0a8688f8d",
   options: {
     ignoreLocalhost: false,
     detailed: true,
