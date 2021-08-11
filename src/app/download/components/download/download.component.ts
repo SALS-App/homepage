@@ -23,7 +23,7 @@ export class DownloadComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.ackeeServ.event("5c254feb-31b8-4a3b-80be-8563b883cc28", { key: "Download", value: 1 });
+    this.ackeeServ.event("658262e3-13d5-4bb2-bead-7dad93cf9c4f", { key: "Download", value: 1 });
 
     const req = new HttpRequest('GET', await this.blobDownloader.getDLLink(), {
       reportProgress: true,
