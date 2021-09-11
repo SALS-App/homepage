@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FileSaverModule } from 'ngx-filesaver';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AckeeConfig, AckeeModule } from 'ngx-ackee-wrapper';
+
+import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }
@@ -19,7 +19,7 @@ const ACKEE_CONFIG: AckeeConfig = {
   server: "https://nova.sals-app.com",
   domainId: "1e547cc6-e9f2-40d6-8acb-f1d0a8688f8d",
   options: {
-    ignoreLocalhost: false,
+    ignoreLocalhost: true,
     detailed: true,
     // ignoreOwnVisits: true,
   },
