@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+
 import { DownloadComponent } from 'src/app/download/components/download/download.component';
 
 @Component({
