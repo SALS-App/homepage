@@ -6,5 +6,17 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 
 export default createVuetify(
-  // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+  {
+    theme: {
+      themes: {
+        light: {
+          dark: true,
+          colors: {
+            primary: "#4285f4",
+            background: "#040402"
+          }
+        },
+      },
+    },
+  }
 )
