@@ -40,6 +40,18 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+a,
+button,
+h5 {
+  color: #fff !important;
+}
+
 .container {
   padding: 1% 2% !important;
 }
