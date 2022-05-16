@@ -45,7 +45,7 @@ body {
 }
 
 .bg {
-  background-image: url("./assets/images/background.png");
+  background-image: url("./assets/images/background.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
