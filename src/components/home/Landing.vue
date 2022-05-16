@@ -11,11 +11,29 @@
         </div>
 
         <div class="action-links">
-            <v-btn flat color="primary">Download Launcher</v-btn>
+            <v-btn flat color="primary" @click="download = true">Download
+                Launcher
+            </v-btn>
             <v-btn flat href="https://docs.sals-app.com/de" target="_blank" variant="outlined">Dokumentation</v-btn>
         </div>
     </section>
+
+    <download-modal v-model="download" :is-active="download" @download-complete="download = false"></download-modal>
 </template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import DownloadModal from '../dialogs/Download.vue';
+
+export default defineComponent({
+    components: { DownloadModal },
+    setup() {
+        const download = ref(false);
+
+        return { download };
+    }
+})
+</script>
 
 <style lang="scss" scoped>
 #section1 {
