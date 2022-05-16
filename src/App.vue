@@ -53,6 +53,9 @@ body {
   width: 100vw;
   position: relative;
   padding-left: 5%;
+}
 
+.v-progress-circular__underlay {
+  stroke: none;
 }
 </style>
