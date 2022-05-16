@@ -67,11 +67,32 @@ export default defineComponent({
             margin-left: 2.5em;
         }
 
+        button {
+            animation: pulseButton 2s infinite;
+        }
+
         button,
         a {
             height: 65px;
             font-size: 1.2em;
         }
+    }
+}
+
+@keyframes pulseButton {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(0, 91, 228, 1);
+        box-shadow: 0 0 0 0 rgba(0, 91, 228, 1);
+    }
+
+    75% {
+        -moz-box-shadow: 0 0 0 rgba(0, 91, 228, 0);
+        box-shadow: 0 0 0 18px rgba(0, 91, 228, 0);
+    }
+
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(0, 91, 228, 0);
+        box-shadow: 0 0 0 0 rgba(0, 91, 228, 0);
     }
 }
 </style>
