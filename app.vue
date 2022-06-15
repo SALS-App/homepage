@@ -51,6 +51,7 @@ html,
 body {
   height: 100%;
   overflow-x: hidden;
+  background-color: #131b27;
 }
 
 body {
