@@ -2,7 +2,7 @@
 
   <Head>
 
-    <Meta name="title" content="SALS Website - Landing" />
+    <Title>SALS Website - Landing</Title>
 
     <Link rel="preconnect" href="https://fonts.googleapis.com" />
     <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
