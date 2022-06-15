@@ -5,7 +5,7 @@ import logo from '../assets/images/logo.png';
 <template>
     <v-row class="navbar">
         <v-col md="4">
-            <v-img :src="logo" width="500px"></v-img>
+            <v-img :src="logo" alt="SALS Logo" width="500px"></v-img>
         </v-col>
 
         <v-col md="7" class="ml-auto">
