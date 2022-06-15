@@ -38,15 +38,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import logo from './assets/images/logo.png';
 import Navbar from './components/Navbar.vue';
 import Landing from './components/home/Landing.vue';
 
 export default defineComponent({
   components: { Navbar, Landing },
-  setup() {
-    return { logo };
-  }
 })
 </script>
 
