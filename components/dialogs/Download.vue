@@ -11,7 +11,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
-import { getDLLink } from '../../plugins/sals';
 import axios from 'axios';
 
 export default defineComponent({
@@ -31,8 +30,10 @@ export default defineComponent({
         });
 
         async function downloadSALS() {
+            const { $getSalsDlUrl } = useNuxtApp()
+
             const response = await axios({
-                url: await getDLLink(),
+                url: await $getSalsDlUrl(),
                 method: 'GET',
                 responseType: 'blob',
                 onDownloadProgress: (progressEvent) => {
