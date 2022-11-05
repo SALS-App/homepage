@@ -38,7 +38,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 #section1 {
     position: absolute;
-    top: 450%; // 35
+    top: 35vh;
 
     .info-text {
         margin-top: 3%;
