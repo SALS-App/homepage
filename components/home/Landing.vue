@@ -1,8 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
+import { IDownloadManifest, IDownloadPlatform } from '~~/interfaces/IDownloadManifest';
 import DownloadModal from '../dialogs/Download.vue';
 
+const { $getDownloadManifest } = useNuxtApp();
+
+const downloads: Ref<Partial<IDownloadManifest>> = ref({});
 const download = ref(false);
+const downloadPlatform: Ref<Partial<IDownloadPlatform>> = ref({});
+
+function downloadLauncher(entry?: IDownloadPlatform) {
+    if (typeof entry === 'undefined') {
+        if (typeof downloads.value.platforms === 'undefined')
+            return;
+
+        if (window.navigator.userAgent.includes('Windows')) {
+            entry = downloads.value.platforms['windows-x86_64'];
+        } else {
+            entry = downloads.value.platforms['linux-x86_64'];
+        }
+    }
+
+    entry = { ...entry };
+    entry.url = entry.url.replace(entry.compressed, '');
+
+    downloadPlatform.value = entry;
+    download.value = true;
+}
+
+onMounted(async () => {
+    downloads.value = await $getDownloadManifest();
+});
 </script>
 
 <template>
@@ -19,16 +47,39 @@ const download = ref(false);
 
         <div class="action-links">
             <div class="btn-group">
-                <v-btn flat color="primary" @click="download = true">
+                <v-btn class="dl-main" flat color="primary" @click="downloadLauncher()">
                     Download Launcher
                 </v-btn>
+                <v-menu>
+                    <template v-slot:activator="{ props }">
+                        <v-btn class="dl-select" flat color="primary" v-bind="props">
+                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                            </svg>
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item v-for="downloadEntry in downloads.platforms">
+                            <v-list-item-title>
+                                <p>
+                                    {{ downloadEntry.display }} -
+                                    <v-btn variant="text" @click="downloadLauncher(downloadEntry)">
+                                        Download
+                                    </v-btn>
+                                </p>
+                            </v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
             </div>
 
             <v-btn flat href="https://docs.sals-app.com/de" target="_blank" variant="outlined">Dokumentation</v-btn>
         </div>
     </section>
 
-    <download-modal v-model="download" :is-active="download" @download-complete="download = false"></download-modal>
+    <download-modal v-model="download" :download-platform="downloadPlatform" :is-active="download"
+        @download-complete="download = false" />
 </template>
 
 
@@ -69,6 +120,17 @@ const download = ref(false);
             display: inline-table;
             border-radius: 5px;
             animation: pulseButton 2s infinite;
+
+            .dl-main {
+                border-radius: 6px 0 0 6px;
+            }
+
+            .dl-select {
+                border-radius: 0 6px 6px 0;
+                margin-left: 3px;
+                padding: 0 !important;
+                min-width: 38px;
+            }
         }
 
         button,
