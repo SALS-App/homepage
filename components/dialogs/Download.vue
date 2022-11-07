@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { IDownloadPlatform } from '../../interfaces/IDownloadManifest';
 import axios from 'axios';
 
 const props = defineProps({
-    isActive: Boolean
+    isActive: Boolean,
+    downloadPlatform: Object as () => Partial<IDownloadPlatform>
 });
 const emit = defineEmits(['download-complete']);
 
@@ -14,15 +16,16 @@ watch(() => props.isActive, async (newValue, _oldValue) => {
     if (newValue === true) {
         progress.value = 0;
 
-        await downloadSALS();
+        if (typeof props.downloadPlatform === 'undefined')
+            return;
+
+        await downloadSALS(props.downloadPlatform.url ?? "", props.downloadPlatform.ext ?? "", props.downloadPlatform.is_server ?? false);
     }
 });
 
-async function downloadSALS() {
-    const { $getSalsDlUrl } = useNuxtApp()
-
+async function downloadSALS(p_url: string, ext: string, is_server: boolean) {
     const response = await axios({
-        url: await $getSalsDlUrl(),
+        url: p_url,
         method: 'GET',
         responseType: 'blob',
         onDownloadProgress: (progressEvent) => {
@@ -39,7 +42,10 @@ async function downloadSALS() {
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'SALS Installer.exe');
+    if (is_server)
+        link.setAttribute('download', `SALS Server${ext}`);
+    else
+        link.setAttribute('download', `SALS Installer${ext}`);
     document.body.appendChild(link);
     link.click();
 }
