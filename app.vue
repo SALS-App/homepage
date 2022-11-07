@@ -1,11 +1,10 @@
 <template>
 
   <Head>
-
     <Title>SALS Website - Landing</Title>
 
     <Link rel="preconnect" href="https://fonts.googleapis.com" />
-    <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+    <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
     <Link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
 
     <Meta name="description" content="SALS is a fast and simple Mod Syncing Tool and Launcher for the Game ArmA 3." />
@@ -73,6 +72,12 @@ h5 {
 
 .container {
   padding: 1% 2% !important;
+}
+
+.v-list {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(17, 17, 17, 0.7) !important;
 }
 
 .bg {
