@@ -23,6 +23,7 @@ export default defineNuxtPlugin(nuxtApp => {
                 dark
             },
         },
+        ssr: true,
     });
 
     nuxtApp.vueApp.use(vuetify);
