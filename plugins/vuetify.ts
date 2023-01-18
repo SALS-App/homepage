@@ -22,7 +22,7 @@ export default defineNuxtPlugin(nuxtApp => {
             themes: {
                 dark
             },
-        },
+        }
     });
 
     nuxtApp.vueApp.use(vuetify);

@@ -1,3 +1,57 @@
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import { IDownloadPlatform } from '../../interfaces/IDownloadManifest';
+import axios from 'axios';
+
+const props = defineProps({
+    isActive: Boolean,
+    downloadPlatform: Object as () => Partial<IDownloadPlatform>
+});
+const emit = defineEmits(['download-complete']);
+
+const dialog = ref(true);
+const progress = ref(0);
+
+watch(() => props.isActive, async (newValue, _oldValue) => {
+    if (newValue === true) {
+        progress.value = 0;
+
+        if (typeof props.downloadPlatform === 'undefined')
+            return;
+
+        await downloadSALS(props.downloadPlatform.url ?? "", props.downloadPlatform.ext ?? "", props.downloadPlatform.is_server ?? false);
+    }
+});
+
+async function downloadSALS(p_url: string, ext: string, is_server: boolean) {
+    const response = await axios({
+        url: p_url,
+        method: 'GET',
+        responseType: 'blob',
+        onDownloadProgress: (progressEvent) => {
+            if (typeof progressEvent.total === 'undefined')
+                return;
+
+            progress.value = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+
+            if (progress.value === 100)
+                setTimeout(() => emit('download-complete'), 1000);
+        },
+    });
+
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    if (is_server)
+        link.setAttribute('download', `SALS Server${ext}`);
+    else
+        link.setAttribute('download', `SALS Installer${ext}`);
+    document.body.appendChild(link);
+    link.click();
+}
+
+</script>
+
 <template>
     <v-dialog v-model="dialog" persistent>
         <div class="loader">
@@ -8,54 +62,6 @@
         </div>
     </v-dialog>
 </template>
-
-<script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
-import axios from 'axios';
-
-export default defineComponent({
-    emits: ['download-complete'],
-    props: { isActive: Boolean },
-    setup(props, ctx) {
-
-        const dialog = ref(true);
-        const progress = ref(0);
-
-        watch(() => props.isActive, async (newValue, _oldValue) => {
-            if (newValue === true) {
-                progress.value = 0;
-
-                await downloadSALS();
-            }
-        });
-
-        async function downloadSALS() {
-            const { $getSalsDlUrl } = useNuxtApp()
-
-            const response = await axios({
-                url: await $getSalsDlUrl(),
-                method: 'GET',
-                responseType: 'blob',
-                onDownloadProgress: (progressEvent) => {
-                    progress.value = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-
-                    if (progress.value === 100)
-                        setTimeout(() => ctx.emit('download-complete'), 1000);
-                },
-            });
-
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'SALS Installer.exe');
-            document.body.appendChild(link);
-            link.click();
-        }
-
-        return { dialog, progress };
-    }
-})
-</script>
 
 <style scoped lang="scss">
 .loader {
