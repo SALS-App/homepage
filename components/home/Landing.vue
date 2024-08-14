@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue'
-import { IDownloadManifest, IDownloadPlatform } from '~~/interfaces/IDownloadManifest';
+import type { IDownloadManifest, IDownloadPlatform } from '~~/interfaces/IDownloadManifest';
 import DownloadModal from '../dialogs/Download.vue';
 
 const { $getDownloadManifest } = useNuxtApp();

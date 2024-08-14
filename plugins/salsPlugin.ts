@@ -1,4 +1,4 @@
-import { IDownloadManifest } from "~~/interfaces/IDownloadManifest";
+import type { IDownloadManifest } from "~/interfaces/IDownloadManifest";
 
 export default defineNuxtPlugin(() => {
     return {

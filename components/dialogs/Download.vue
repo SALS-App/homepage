@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { IDownloadPlatform } from '../../interfaces/IDownloadManifest';
+import type { IDownloadPlatform } from '../../interfaces/IDownloadManifest';
 import axios from 'axios';
 
 const props = defineProps({
